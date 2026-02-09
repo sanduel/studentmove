@@ -1,0 +1,44 @@
+title: "Student Move Out Coalition"
+description: "Keep stuff out of landfills and support Ann Arbor community members in need."
+url: ""
+baseurl: ""
+
+future: true
+
+collections:
+  events:
+    output: true
+    permalink: /events/:slug/
+  partners:
+    output: false
+
+defaults:
+  - scope:
+      path: ""
+    values:
+      layout: page
+  - scope:
+      path: ""
+      type: "events"
+    values:
+      layout: event
+  - scope:
+      path: "index.md"
+    values:
+      layout: home
+
+plugins:
+  - jekyll-feed
+  - jekyll-seo-tag
+  - jekyll-sitemap
+
+exclude:
+  - Gemfile
+  - Gemfile.lock
+  - Rakefile
+  - README.md
+  - "**/docs.md"
+  - .sass-cache
+  - .jekyll-cache
+  - node_modules
+  - vendor

@@ -1,0 +1,46 @@
+<header class="site-header">
+  <div class="container">
+    <a href="{{ '/' | relative_url }}" class="site-logo">
+      <span class="site-logo-text">Student Move</span>
+      <span class="site-logo-tagline">Ann Arbor Move Out Coalition</span>
+    </a>
+    <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false">
+      <span class="nav-toggle-bar"></span>
+      <span class="nav-toggle-bar"></span>
+      <span class="nav-toggle-bar"></span>
+    </button>
+    <nav class="site-nav" aria-label="Main navigation">
+      <ul class="nav-list">
+        {% for item in site.data.navigation.main %}
+        <li class="nav-item{% if item.children %} has-dropdown{% endif %}">
+          {% if item.url %}<a href="{{ item.url | relative_url }}"{% if page.url == item.url %} aria-current="page"{% endif %}>{{ item.title }}</a>{% else %}<a href="#">{{ item.title }}</a>{% endif %}
+          {% if item.children %}
+          <ul class="nav-dropdown">
+            {% for child in item.children %}
+            {% if child.separator %}
+            <li class="nav-dropdown-separator"></li>
+            {% elsif child.next_event_type %}
+            {% assign now = site.time | date: "%Y-%m-%d" %}
+            {% assign next_event = nil %}
+            {% assign sorted_events = site.events | sort: "date" %}
+            {% for event in sorted_events %}
+              {% assign event_date = event.date | date: "%Y-%m-%d" %}
+              {% if event.event_type == child.next_event_type and event_date >= now and next_event == nil %}
+                {% assign next_event = event %}
+              {% endif %}
+            {% endfor %}
+            {% if next_event %}
+            <li class="nav-dropdown-event"><a href="{{ next_event.url | relative_url }}">{{ child.label }}: {{ next_event.date | date: "%b %-d" }}{% if next_event.end_date %}&ndash;{{ next_event.end_date | date: "%-d" }}{% endif %}</a></li>
+            {% endif %}
+            {% else %}
+            <li><a href="{{ child.url | relative_url }}"{% if page.url == child.url %} aria-current="page"{% endif %}>{{ child.title }}</a></li>
+            {% endif %}
+            {% endfor %}
+          </ul>
+          {% endif %}
+        </li>
+        {% endfor %}
+      </ul>
+    </nav>
+  </div>
+</header>

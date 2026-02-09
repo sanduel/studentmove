@@ -1,0 +1,24 @@
+main:
+  - title: Drop-Off
+    url: /drop-off/
+    children:
+      - title: Drop-Off Schedule
+        url: /drop-off/
+      - title: What's Accepted
+        url: /drop-off/#accepted
+      - title: Not Accepted
+        url: /drop-off/#not-accepted
+      - separator: true
+      - next_event_type: Drop-Off
+        label: "Next Drop-Off"
+  - title: Donate
+    url: /donate-items/
+  - title: Volunteer
+    url: /volunteer/
+  - title: About Us
+    url: /about/
+    children:
+      - title: Partners
+        url: /about/#partners
+      - title: Contact
+        url: /about/#contact
