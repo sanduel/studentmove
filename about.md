@@ -35,6 +35,7 @@ permalink: /about/
       <div class="partner-item">Recycle Ann Arbor</div>
       <div class="partner-item">Ann Arbor Thrift Shop</div>
       <div class="partner-item">Scrap Creative Reuse</div>
+      <div class="partner-item">zerowaste.org</div>
     </div>
 
     <h3 style="text-align: center; margin: 2.5rem 0 1.5rem;">University of Michigan</h3>
